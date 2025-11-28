@@ -1,0 +1,95 @@
+:root{
+    --bg:     #0f4b43;  /* خلفية الشعار */
+    --mark:   #d9efe9;  /* لون الشكل */
+    --accent: #2f8f7f;  /* الخط داخل الشكل */
+    --sun:    #f4b400;  /* الدائرة الصفراء */
+    --text:   #d7e0da;  /* لون النص */
+}
+
+body {
+    margin:0;
+    font-family: Arial, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--bg); /* نفس خلفية الشعار */
+    padding: 10px 20px;
+}
+
+header img {
+    height: 60px;
+}
+
+nav a {
+    color: var(--text);
+    text-decoration: none;
+    margin-left: 15px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--sun);
+}
+
+.content {
+    padding:20px;
+}
+
+.highlight-box {
+    background-color: var(--sun);
+    color: var(--bg);
+    text-align:center;
+    padding:15px;
+    border-radius:10px;
+    margin-bottom:20px;
+}
+
+.scholarships-grid {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+    margin-top:20px;
+}
+
+.scholarship-card {
+    background-color: var(--mark);
+    color: var(--bg);
+    padding:15px;
+    width:300px;
+    border-radius:10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.scholarship-card h2 {
+    color: var(--accent);
+}
+
+.scholarship-card a {
+    display:inline-block;
+    background-color: var(--sun);
+    color: var(--bg);
+    padding:8px 12px;
+    margin-top:10px;
+    border-radius:5px;
+    text-decoration:none;
+    transition: opacity 0.3s;
+}
+
+.scholarship-card a:hover {
+    opacity: 0.9;
+}
+
+footer {
+    background-color: var(--bg); /* نفس خلفية الشعار */
+    color: var(--text);
+    text-align:center;
+    padding:15px;
+    margin-top:20px;
+}
