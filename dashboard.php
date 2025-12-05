@@ -14,6 +14,7 @@ $stmt->execute([$_SESSION['user_id']]);
 $applications = $stmt->fetchAll();
 ?>
 
+
 <div class="content">
     <h1 style="text-align:center;">لوحة التحكم</h1>
     <p style="text-align:center;">مرحباً، <?php echo $_SESSION['username']; ?></p>

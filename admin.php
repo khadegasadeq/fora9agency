@@ -3,7 +3,6 @@ include "config.php";
 include "functions.php";
 include "header.php";
 
-// تأكد أن الأدمن فقط يستطيع الدخول
 if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin'){
     header("Location: login.php");
     exit;
@@ -11,7 +10,6 @@ if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin'){
 
 $message = '';
 
-// إضافة منحة جديدة
 if(isset($_POST['add_scholarship'])){
     $title = $_POST['title'];
     $country = $_POST['country'];
@@ -26,7 +24,6 @@ if(isset($_POST['add_scholarship'])){
     }
 }
 
-// إضافة مستخدم جديد
 if(isset($_POST['add_user'])){
     $fullname = $_POST['fullname'];
     $email = $_POST['email'];
@@ -54,6 +51,7 @@ if(isset($_POST['update_role']) && isset($_POST['user_id'])){
     exit;
 }
 ?>
+
 
 <div class="content">
     <h1 style="text-align:center;">لوحة الأدمن</h1>
@@ -187,59 +185,7 @@ if(isset($_POST['update_role']) && isset($_POST['user_id'])){
         </div>
     </div>
 
-    <!-- زر تسجيل الخروج -->
-    <div style="text-align:center; margin-top:40px;">
-        <a href="logout.php" style="background-color:red; color:white; padding:10px 20px; border-radius:5px; text-decoration:none;">تسجيل الخروج</a>
-    </div>
-</div>
+<script src="admin.js"></script>
 
-<script>
-function showSection(id){
-    document.getElementById(id).style.display = 'block';
-    document.getElementById('formsSection').style.display = 'none';
-}
-function hideSection(id){
-    document.getElementById(id).style.display = 'none';
-    document.getElementById('formsSection').style.display = 'block';
-}
-
-// البحث المباشر في المنح
-document.getElementById('searchScholarships').addEventListener('keyup', function(){
-    let filter = this.value.toLowerCase();
-    let rows = document.querySelectorAll('#scholarshipsTable table tr');
-    rows.forEach((row, index)=>{
-        if(index===0) return; // تجاهل العنوان
-        row.style.display = row.textContent.toLowerCase().includes(filter) ? '' : 'none';
-    });
-});
-
-// البحث المباشر في المستخدمين
-document.getElementById('searchUsers').addEventListener('keyup', function(){
-    let filter = this.value.toLowerCase();
-    let rows = document.querySelectorAll('#usersTable table tr');
-    rows.forEach((row, index)=>{
-        if(index===0) return; // تجاهل العنوان
-        row.style.display = row.textContent.toLowerCase().includes(filter) ? '' : 'none';
-    });
-});
-
-// تعديل دور المستخدم عبر AJAX
-function updateRole(userId, newRole){
-    fetch('update_role.php', {
-        method:'POST',
-        headers: {'Content-Type':'application/x-www-form-urlencoded'},
-        body: `user_id=${userId}&role=${newRole}`
-    })
-    .then(res=>res.text())
-    .then(data=>{
-        if(data.trim() === 'success'){
-            document.getElementById('roleText'+userId).innerText = newRole;
-        } else {
-            alert('حدث خطأ أثناء التعديل');
-        }
-    });
-}
-
-</script>
 
 <?php include "footer.php"; ?>

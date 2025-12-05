@@ -66,4 +66,5 @@ if(isset($_POST['update_scholarship'])){
     </div>
 </div>
 
+
 <?php include "footer.php"; ?>

@@ -1,4 +1,5 @@
 <?php
+//create_tables.php
 require_once "config.php";
 
 // جدول المنح
@@ -40,6 +41,12 @@ CREATE TABLE IF NOT EXISTS applications (
     FOREIGN KEY (scholarship_id) REFERENCES scholarships(id)
 )
 ";
+
+// اضفته للاونلاين
+// ALTER TABLE scholarships CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+// ALTER TABLE scholarships MODIFY title VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+// ALTER TABLE scholarships MODIFY details TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+
 $pdo->exec($applications);
 
 echo "✅ All tables created successfully";

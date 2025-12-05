@@ -2,6 +2,7 @@
 include "header.php";
 ?>
 
+
 <div class="content">
     <!-- عنوان الصفحة -->
     <h1 style="text-align:center; color: var(--sun); margin-bottom:20px;">عن وكالة فرص – Furas Agency</h1>
@@ -47,5 +48,7 @@ include "header.php";
         <p>لمزيد من المعلومات يرجى التواصل مباشرة عبر الواتس أو الاتصال بالأرقام أعلاه.</p>
     </div>
 </div>
+
+
 
 <?php include "footer.php"; ?>
